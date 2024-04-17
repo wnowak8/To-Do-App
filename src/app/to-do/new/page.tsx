@@ -3,13 +3,10 @@ import { redirect } from 'next/navigation';
  
 export default function CreateTaskPage() {
   async function createTask(formData: FormData) {
-    //ustawić komponent jako serwerowy
     'use server';
-    //sprawdzić wpisy do inputów i je zwalidować
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
  
-    //stworzyć nowy rekord w bazie
     const task = await db.toDo.create({
       data: {
         title,
@@ -18,12 +15,11 @@ export default function CreateTaskPage() {
     });
     console.log(task);
  
-    //przekierować użytkownika na stronę startową
     redirect('/');
   }
     return (
       <form action={createTask}>
-        <h3 className="font-bold m-3">Add new task</h3>
+        <h3 className="font-bold text-center m-3">Add new task</h3>
         <div className="flex flex-col gap-4">
           <div className="flex gap-4">
             <label className="w-36" htmlFor="title">
@@ -46,7 +42,7 @@ export default function CreateTaskPage() {
             />
           </div>
    
-          <button type="submit" className="rounded p-2 bg-blue-200">
+          <button type="submit" className="rounded p-2 bg-purple-300">
             Add
           </button>
         </div>
