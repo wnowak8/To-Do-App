@@ -3,13 +3,13 @@ import { useState } from 'react';
 
 interface EditTaskFormProps {
   onSubmit: (formData: { title: string; description: string }) => Promise<void>;
-  task: { title: string; description: string };
+  task: { title: string; description: string } | null;
 }
 
 export default function EditTaskForm({ onSubmit, task }: EditTaskFormProps) {
   const [formData, setFormData] = useState({
-    title: task.title || '',
-    description: task.description || '',
+    title: task?.title || '',
+    description: task?.description || '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,6 +24,10 @@ export default function EditTaskForm({ onSubmit, task }: EditTaskFormProps) {
     e.preventDefault();
     await onSubmit(formData);
   };
+
+  if (!task) {
+    return null;
+  }
 
   return (
     <form onSubmit={handleSubmit}>
