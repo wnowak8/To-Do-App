@@ -53,7 +53,7 @@ export default function EditTaskForm({ onSubmit, task }: EditTaskFormProps) {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="rounded p-2 bg-purple-300">
+        <button type="submit" className="rounded p-2 bg-purple-400">
           Add
         </button>
       </div>

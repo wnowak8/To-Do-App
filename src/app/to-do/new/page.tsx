@@ -13,13 +13,12 @@ export default function CreateTaskPage() {
         description,
       },
     });
-    console.log(task);
- 
+     
     redirect('/');
   }
     return (
       <form action={createTask}>
-        <h3 className="font-bold text-center m-3">Add new task</h3>
+        <h3 className="font-bold text-center m-3" >Add new task</h3>
         <div className="flex flex-col gap-4">
           <div className="flex gap-4">
             <label className="w-36" htmlFor="title">
@@ -42,7 +41,7 @@ export default function CreateTaskPage() {
             />
           </div>
    
-          <button type="submit" className="rounded p-2 bg-purple-300">
+          <button type="submit" className="rounded p-2 bg-purple-400">
             Add
           </button>
         </div>

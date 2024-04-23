@@ -1,8 +1,6 @@
-// src/app/to-do/[id]/edit/index.tsx
-
 import { db } from '@/app/db-connector';
 import { redirect } from 'next/navigation';
-import EditTaskForm from './EditTaskForm'; // Importujemy komponent EditTaskForm
+import EditTaskForm from './EditTaskForm';
 
 interface TaskShowPageProps {
   params: {
